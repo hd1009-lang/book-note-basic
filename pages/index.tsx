@@ -22,6 +22,14 @@ export default function Home({ result }: ArrayResult) {
     <div className='w-full h-screen flex items-center justify-center overflow-hidden'>
       <Head>
         <title>My note</title>
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='theme-color' content='#000000' />
+        <meta property='og:title' content='Note of Đ' />
+        <meta property='og:type' content='Website take note' />
+        <meta property='og:image' content='./giphy.gif' />
+        <meta property='og:url' content='https://note.daihoang.space' />
+        <meta name='description' content='Note of Đ' />
       </Head>
       <div className='w-fit min-w-[30%] h-[500px] text-[14px] overflow-hidden relative '>
         <motion.h4
