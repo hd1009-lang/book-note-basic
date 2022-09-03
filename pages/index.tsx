@@ -4,7 +4,10 @@ import { GetServerSideProps } from 'next';
 import { motion } from 'framer-motion';
 import Router from 'next/router';
 import Head from 'next/head';
+import { handleNameOfBook } from '../lib/post';
 export default function Home({ result }: ArrayResult) {
+  console.log(result);
+
   const [showContent, setShowContent] = useState<boolean>(false);
   const [note, setNote] = useState<Result>(result);
   const handleUpdate = async (blockID: string, mount: number) => {
@@ -31,7 +34,7 @@ export default function Home({ result }: ArrayResult) {
         <meta property='og:url' content='https://note.daihoang.space' />
         <meta name='description' content='Note of Đ' />
       </Head>
-      <div className='w-fit min-w-[30%] h-[500px] text-[14px] overflow-hidden relative '>
+      <div className='w-fit min-w-[30%] max-w-[50%] h-[500px] text-[14px] overflow-hidden relative '>
         <motion.h4
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -49,7 +52,7 @@ export default function Home({ result }: ArrayResult) {
           onClick={() => handleShowContent()}
         >
           <div className=' w-full h-full   relative top-0  flex items-center justify-center px-[5px]'>
-            <h3 className=' font-medium text-[20px] md:text-[25px] xl:text-[28px]'>{note.properties.Book.title[0]?.plain_text}</h3>
+            <h3 className=' font-medium text-[20px] md:text-[25px] xl:text-[28px]'>{handleNameOfBook(note.properties.Book)}</h3>
             <span className='font-medium text-[10px]'>-{note.properties.Page.number}</span>
           </div>
         </motion.div>
