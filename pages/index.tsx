@@ -34,7 +34,7 @@ export default function Home({ result }: ArrayResult) {
         <meta property='og:url' content='https://note.daihoang.space' />
         <meta name='description' content='Note of Đ' />
       </Head>
-      <div className='w-fit min-w-[30%] max-w-[50%] h-[500px] text-[14px] overflow-hidden relative '>
+      <div className='w-[95%] lg:w-fit lg:min-w-[30%] lg:max-w-[50%] h-[500px] text-[14px] overflow-hidden relative '>
         <motion.h4
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -42,6 +42,14 @@ export default function Home({ result }: ArrayResult) {
           className='absolute top-[5px] right-[15px] text-[12px] z-[100] font-bold'
         >
           {note.properties.Mount.number}
+        </motion.h4>
+        <motion.h4
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.75, delay: 1 }}
+          className='absolute top-[5px] left-[15px] text-[12px] z-[100] font-bold'
+        >
+          /{note.properties.Page.number}
         </motion.h4>
         <motion.div
           initial={{ y: '100%', opacity: 0 }}
@@ -53,7 +61,6 @@ export default function Home({ result }: ArrayResult) {
         >
           <div className=' w-full h-full   relative top-0  flex items-center justify-center px-[5px]'>
             <h3 className=' font-medium text-[20px] md:text-[25px] xl:text-[28px]'>{handleNameOfBook(note.properties.Book)}</h3>
-            <span className='font-medium text-[10px]'>-{note.properties.Page.number}</span>
           </div>
         </motion.div>
         <motion.div
