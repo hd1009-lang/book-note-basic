@@ -1,12 +1,12 @@
 import { Client } from '@notionhq/client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { motion } from 'framer-motion';
 import Router from 'next/router';
 import Head from 'next/head';
-import { handleNameOfBook } from '../lib/post';
+// import { handleNameOfBook } from '../lib/post';
 export default function Home({ result }: ArrayResult) {
-  console.log(result);
+  // console.log(result);
 
   const [showContent, setShowContent] = useState<boolean>(false);
   const [note, setNote] = useState<Result>(result);
@@ -60,7 +60,7 @@ export default function Home({ result }: ArrayResult) {
           onClick={() => handleShowContent()}
         >
           <div className=' w-full h-full   relative top-0  flex items-center justify-center px-[5px]'>
-            <h3 className=' font-medium text-[20px] md:text-[25px] xl:text-[28px]'>{handleNameOfBook(note.properties.Book)}</h3>
+            <h3 className=' font-medium text-[20px] md:text-[25px] xl:text-[28px]'>{note.properties.Name.select.name}</h3>
           </div>
         </motion.div>
         <motion.div
@@ -96,6 +96,7 @@ interface Result {
     Book: { title: [{ plain_text: string }] };
     Mount: { number: number };
     Page: { number: number };
+    Name: { select: { name: string } };
   };
 }
 interface ArrayResult {
